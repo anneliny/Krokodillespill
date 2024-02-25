@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krokodillespill</title>
+</head>
+<body>
+    <h1>Krokodillespill</h1>
+    <div id="points">Poeng:</div>
+    <div id="topNum">0</div>
+    <input id="answer" type="text">
+    <div id="bottomNum">0</div>
+    <button onclick="btnSubmit()">Submit</button>
+    <button onclick="btnReset()">Reset</button>
+ 
+    <script>
+    
+        let topNum= '';
+        let bottomNum= '';
+        let points= 0;
+
+        function btnReset(){
+        topNum = getNumber();
+        bottomNum = getNumber();
+        document.getElementById('topNum').innerHTML=topNum;
+        document.getElementById('bottomNum').innerHTML=bottomNum;
+        }
+        function getNumber(){
+        return Math.round (Math.random()*10);
+        }
+        
+        function btnSubmit(){
+            document.getElementById('points').innerHTML = 
+            "Poeng: " + points;
+            if (document.getElementById('answer').value == "=" && topNum == bottumNum){
+            points ++;
+            btnReset()
+            }
+            else if (document.getElementById('answer').value == "<" && topNum < bottomNum){
+            points ++;
+            btnReset()
+            }
+            else if (document.getElementById('answer').value == ">" && topNum > bottomNum){
+           points ++;
+           btnReset()
+            }
+            else {
+            points --;
+            btnReset()
+            }
+            
+    
+        }
+
+
+
+
+
+
+    </script>
+</body>
+</html>
